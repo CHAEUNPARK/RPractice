@@ -60,3 +60,75 @@ data_omit <- na.omit(data)
 #' 5. factor : 명목형(Categorical)
 #'    ex) (대, 중, 소), (남, 여)
 #'    level성질 
+#'    
+
+
+df <- data.frame(x = c(1,2,3,4),
+                 y = c("a", "b", "c", "d"),
+                 z = c("A", "B", "C", "D"))
+df
+
+df <- iris
+names(df)
+df [-5]
+df
+df [-c(3,4)]
+
+library(dplyr)
+
+#'
+#'  pipeline coding
+#'  
+#'  df %>% select .... %>% group_by %>% summarize
+
+comp1 <- c("a", "b", "c", "d" )
+
+c("a", "c") %in% comp1
+comp1 %in% c("a", "c")
+
+
+lst <- list(name="hyo", addr="seoul", tel="010", pay=c('500', '600'))
+lst$name
+lst['name']
+lst[1]
+lst$pay
+lst$pay[1]
+lst[['pay']][1]
+lst[[4]][1]
+lst$pay[-2]
+lst[['pay']][-2]
+lst[[4]][-2]
+lst1 <- lst[-c(1,2,3)]$pay[1]
+lst1
+lst[4]$pay[1]
+
+
+lst[[4]][][1]
+
+
+# 벡터 연산
+tmp <- c()
+
+
+getwd()
+
+df_coffee_utf8 <- read.csv("./data/example_coffee_utf8.csv", stringsAsFactors = F, encoding = 'UTF-8')
+str(df_coffee)
+df_coffee <- read.csv("./data/example_coffee.csv", stringsAsFactors = F, encoding = 'CP949')
+df_coffee
+
+install.packages("data.table")
+library(data.table)
+df_coffee <- fread('./data/example_coffee.csv', stringsAsFactors = F, data.table = F)
+df_coffee
+str(df_coffee)
+
+
+# lapply
+
+####################################################################
+library(reshape2)
+head(french_fries)
+df <- french_fries
+m <- melt(df, id.vars = 1:4)
+m
